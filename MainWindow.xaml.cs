@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using WPF_APOSTAR_MIGRACION.Presentation;
 using WPF_APOSTAR_MIGRACION.Domain;
 
@@ -18,9 +18,9 @@ namespace WPF_APOSTAR_MIGRACION
             this.WindowVB.Height = SystemParameters.PrimaryScreenHeight;
             this.WindowVB.Width = this.Height * 9 / 16;
 
-            // Inicializar el navegador y mostrar la pantalla de inicio
+            // Inicializar el navegador y mostrar la pantalla de carga
             Navigator.Instance.Init(this);
-            Navigator.Instance.NavigateTo(new MainPublicityUC());
+            Navigator.Instance.NavigateTo(new Presentation.Administrator.ConfigUC());
         }
     }
 }
