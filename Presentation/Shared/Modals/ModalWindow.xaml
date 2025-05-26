@@ -1,0 +1,41 @@
+<Window x:Class="WPF_APOSTAR_MIGRACION.Presentation.Shared.Modals.ModalWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_APOSTAR_MIGRACION.Presentation.Shared.Modals"
+             mc:Ignorable="d" 
+             
+             Height="1920" Width="1080"
+             
+             
+             >
+
+
+            <Viewbox Stretch="Uniform">
+                <Grid x:Name="WindowVB" Width="1080" Height="1920" MouseDown="Grid_MouseDown">
+                    <MediaElement 
+                             x:Name="mediaElement"
+                             Loaded="mediaElement_MediaEnded"
+                             Visibility="Visible"
+                            LoadedBehavior="Play"
+                            UnloadedBehavior="Stop"
+                             MediaEnded="mediaElement_MediaEnded" 
+                            />
+
+                    <TextBlock Text="Toca la pantalla para continuar"
+                          HorizontalAlignment="Center" VerticalAlignment="Top"
+                          FontSize="60" FontWeight="Bold"  Foreground="#60FFFFFF"
+                          Panel.ZIndex="1" Height="104" Width="888" Margin="0,1696,0,0" />
+                          
+                    <Image x:Name="LoadGif" Source="/Resources/loading.gif" Visibility="Collapsed" Width="100" Height="100" />
+                    
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,100,0,0">
+                        <Button x:Name="BtnOk" Content="Aceptar" Width="150" Height="50" Margin="10" MouseDown="BtnOk_MouseDown" Visibility="Collapsed" />
+                        <Button x:Name="BtnYes" Content="Sí" Width="150" Height="50" Margin="10" MouseDown="BtnYes_MouseDown" Visibility="Collapsed" />
+                        <Button x:Name="BtnNo" Content="No" Width="150" Height="50" Margin="10" MouseDown="BtnNo_MouseDown" Visibility="Collapsed" />
+                    </StackPanel>
+                </Grid>
+            </Viewbox>
+
+</Window>
