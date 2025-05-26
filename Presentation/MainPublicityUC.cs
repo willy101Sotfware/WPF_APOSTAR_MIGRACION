@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Configuration;
+using System.Windows.Media;
 using WPF_APOSTAR_MIGRACION.Domain;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation;
@@ -16,6 +17,14 @@ public partial class MainPublicityUC : UserControl
         InitializeComponent();
         _videoPath = ConfigurationManager.AppSettings["VideoPublish"];
         LoadVideo();
+    }
+    
+    private void InitializeComponent()
+    {
+        // Este método normalmente es generado por el compilador de WPF
+        // Pero lo implementamos manualmente para solucionar el error
+        Uri resourceLocater = new Uri("/WPF_APOSTAR_MIGRACION;component/Presentation/MainPublicityUC.xaml", UriKind.Relative);
+        System.Windows.Application.LoadComponent(this, resourceLocater);
     }
 
     private void LoadVideo()
