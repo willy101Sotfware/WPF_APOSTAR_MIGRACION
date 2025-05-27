@@ -15,76 +15,45 @@ namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
             InitializeComponent();
         }
         
-        #region Eventos para BetPlay (Jugar)
-        
-        // Evento TouchDown para el botón Jugar
-        private void Btn_JugarTouchDown(object sender, TouchEventArgs e)
+      
+        private void OpcionButton_Click(object sender, EventArgs e)
         {
-            // Aquí va la lógica para cuando se toca el botón Jugar
-            MessageBox.Show("Botón Jugar presionado");
+            var control = sender as FrameworkElement;
+            if (control == null || control.Tag == null)
+            {
+                return;
+            }
+            
+            // Obtener el tag del control para identificar qué botón se presionó
+            string tag = control.Tag.ToString();
+            
+            // Ejecutar la acción correspondiente según el botón presionado
+            switch (tag)
+            {
+                case "BetPlay":
+                    // Aquí va la lógica para el botón BetPlay
+                    MessageBox.Show("Botón BetPlay presionado");
+                    break;
+                    
+                case "Chance":
+                    // Aquí va la lógica para el botón Chance
+                    MessageBox.Show("Botón Chance presionado");
+                    break;
+                    
+                case "Recaudo":
+                    // Aquí va la lógica para el botón Recaudo
+                    MessageBox.Show("Botón Recaudo presionado");
+                    break;
+                    
+                case "Paquetes":
+                    // Aquí va la lógica para el botón Paquetes
+                    MessageBox.Show("Botón Paquetes presionado");
+                    break;
+                    
+                default:
+                    MessageBox.Show($"Botón desconocido: {tag}");
+                    break;
+            }
         }
-        
-        // Evento MouseDown para el botón Jugar (llama al evento TouchDown)
-        private void Btn_JugarMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            // Llamar al evento TouchDown para reutilizar código
-            Btn_JugarTouchDown(sender, new TouchEventArgs(TouchDevice.GetTouchDevice(this), 0));
-        }
-        
-        #endregion
-        
-        #region Eventos para Chance
-        
-        // Evento TouchDown para el botón Chance
-        private void Btn_ChanceTouchDown(object sender, TouchEventArgs e)
-        {
-            // Aquí va la lógica para cuando se toca el botón Chance
-            MessageBox.Show("Botón Chance presionado");
-        }
-        
-        // Evento MouseDown para el botón Chance (llama al evento TouchDown)
-        private void Btn_ChanceMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            // Llamar al evento TouchDown para reutilizar código
-            Btn_ChanceTouchDown(sender, new TouchEventArgs(TouchDevice.GetTouchDevice(this), 0));
-        }
-        
-        #endregion
-        
-        #region Eventos para Recaudo
-        
-        // Evento TouchDown para el botón Recaudo
-        private void Btn_RecaudoTouchDown(object sender, TouchEventArgs e)
-        {
-            // Aquí va la lógica para cuando se toca el botón Recaudo
-            MessageBox.Show("Botón Recaudo presionado");
-        }
-        
-        // Evento MouseDown para el botón Recaudo (llama al evento TouchDown)
-        private void Btn_RecaudoMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            // Llamar al evento TouchDown para reutilizar código
-            Btn_RecaudoTouchDown(sender, new TouchEventArgs(TouchDevice.GetTouchDevice(this), 0));
-        }
-        
-        #endregion
-        
-        #region Eventos para Recharge (Paquetes)
-        
-        // Evento TouchDown para el botón Recharge
-        private void Btn_RechargeTouchDown(object sender, TouchEventArgs e)
-        {
-            // Aquí va la lógica para cuando se toca el botón Recharge
-            MessageBox.Show("Botón Recharge presionado");
-        }
-        
-        // Evento MouseDown para el botón Recharge (llama al evento TouchDown)
-        private void Btn_RechargeMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            // Llamar al evento TouchDown para reutilizar código
-            Btn_RechargeTouchDown(sender, new TouchEventArgs(TouchDevice.GetTouchDevice(this), 0));
-        }
-        
-        #endregion
     }
 }
