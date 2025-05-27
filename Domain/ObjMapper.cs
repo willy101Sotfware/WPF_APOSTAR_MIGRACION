@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿
 using DB;
+using AutoMapper;
 using WPF_APOSTAR_MIGRACION.ApiService.Models;
-
 
 namespace WPF_APOSTAR_MIGRACION.Domain;
 

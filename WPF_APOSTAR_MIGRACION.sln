@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_APOSTAR_MIGRACION", "WPF_APOSTAR_MIGRACION.csproj", "{BABB6617-D566-4AD5-A3AA-A8FCD8670361}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "..\DB\DB.csproj", "{40AD3065-7003-464D-B0C1-308249804B11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BABB6617-D566-4AD5-A3AA-A8FCD8670361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BABB6617-D566-4AD5-A3AA-A8FCD8670361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BABB6617-D566-4AD5-A3AA-A8FCD8670361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40AD3065-7003-464D-B0C1-308249804B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40AD3065-7003-464D-B0C1-308249804B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40AD3065-7003-464D-B0C1-308249804B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40AD3065-7003-464D-B0C1-308249804B11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

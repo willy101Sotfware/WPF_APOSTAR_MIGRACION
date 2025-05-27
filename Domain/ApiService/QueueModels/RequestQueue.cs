@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System.Net.Http;
+using System.Net.Sockets;
 
 namespace WPF_APOSTAR_MIGRACION.Domain.ApiService.QueueModels;
 

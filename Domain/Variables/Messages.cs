@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.IO;
+using System.Reflection;
 
 namespace WPF_APOSTAR_MIGRACION.Domain.Variables
 {
