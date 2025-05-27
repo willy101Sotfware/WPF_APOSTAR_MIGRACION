@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
+using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Runtime.CompilerServices;
 using WPF_APOSTAR_MIGRACION.Domain.Variables;
@@ -23,12 +25,8 @@ namespace WPF_APOSTAR_MIGRACION.Domain
                 Obj = obj,
             };
 
-            if (type.ToString().StartsWith("P"))
-                WriteFile(_event, "Log_peripherals");
-            else if (type.ToString().Contains("Integration"))
-                WriteFile(_event, "Log_integration");
-            else
-                WriteFile(_event, "Log_app");
+            // Todos los logs van a la misma carpeta
+            WriteFile(_event, "");
         }
 
 
@@ -39,13 +37,21 @@ namespace WPF_APOSTAR_MIGRACION.Domain
                 var json = JsonConvert.SerializeObject(evt, Formatting.Indented);
 
 
-                var logDir = Path.Combine(AppInfo.APP_DIR, folder);
-                if (!Directory.Exists(logDir))
+                // Obtener la ruta de logs desde AppConfig
+                string logPath = ConfigurationManager.AppSettings["PathLog"];
+                if (string.IsNullOrEmpty(logPath))
                 {
-                    Directory.CreateDirectory(logDir);
+                    // Si no está definido en AppConfig, usar la ruta por defecto
+                    logPath = Path.Combine(AppInfo.APP_DIR, "Log");
+                }
+                
+                // Crear la carpeta si no existe
+                if (!Directory.Exists(logPath))
+                {
+                    Directory.CreateDirectory(logPath);
                 }
                 var fileName = "Log" + DateTime.Now.ToString("yyyy-MM-dd") + ".json";
-                var filePath = Path.Combine(logDir, fileName);
+                var filePath = Path.Combine(logPath, fileName);
 
                 if (!File.Exists(filePath))
                 {
@@ -89,4 +95,30 @@ namespace WPF_APOSTAR_MIGRACION.Domain
         P_Dispenser
 
     }
+
+    public enum EResponseCode
+    {
+        Error = 300,
+        NotFound = 404,
+        OK = 200
+    }
+
+    public enum ETypeTramites
+    {
+
+        [Description("Recarga BetPlay")]
+        BetPlay = 56,
+        [Description("SuperChance")]
+        SuperChance = 57,
+        [Description("Recarga Celular")]
+        RecargasCel = 58,
+        [Description("Paquetes Celular")]
+        PaquetesCel = 59,
+        [Description("Recaudos")]
+        Recaudos = 72,
+        [Description("Chance")]
+        Chance = 73
+    }
+
+
 }

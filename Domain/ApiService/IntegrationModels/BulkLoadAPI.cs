@@ -4,26 +4,6 @@ using Newtonsoft.Json.Serialization;
 namespace WPF_APOSTAR_MIGRACION.Domain.ApiService.IntegrationModels;
 
 
-
-#region Apostar
-
-
-
-
-
-
-
-
-
-
-
-
-#endregion
-
-
-
-
-
 public class ResponseGeneric
 {
     public int ResponseCode { get; set; }
@@ -84,23 +64,6 @@ public class ResponseNotifyPay
     public string strMensjError { get; set; }
 }
 
-
-
-#region Request Inder
-
-
-
-public class RequestValidarcupoDisponibleInder
-{
-    public int idDisponibilidad { get; set; }
-    public DateTime fecha { get; set; }
-    public string tipoEspacio { get; set; }
-}
-
-
-
-
-#endregion
 
 
 
