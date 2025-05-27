@@ -1,29 +1,29 @@
-﻿
-
-
+﻿using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Threading.Tasks;
+using WPF_APOSTAR_MIGRACION.Domain;
+using WPF_APOSTAR_MIGRACION.Domain.ApiService;
 using WPF_APOSTAR_MIGRACION.Domain.UIServices;
+using WPF_APOSTAR_MIGRACION.Domain.Variables;
 using WPF_APOSTAR_MIGRACION.Presentation.Shared.Modals;
+using WPF_APOSTAR_MIGRACION.Presentation.Controls;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
 {
     /// <summary>
     /// Lógica de interacción para ConfigUC.xaml
     /// </summary>
-    public partial class ConfigUC : UserControl
+    public partial class ConfigUC : AppUserControl
     {
         private ConfigViewModel _viewModel;
         public ConfigUC()
         {
             InitializeComponent();
-            DataContext = new ConfigViewModel();
-            _viewModel = (ConfigViewModel)DataContext;
-
+            _viewModel = new ConfigViewModel();
+            DataContext = _viewModel;
             Transaction.Reset();
-            this.Loaded += OnLoaded;
-
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs e)
@@ -76,14 +76,10 @@ namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
                 EventLogger.SaveLog(EventType.Error, $"Ocurrió un error en tiempo de ejecución {ex.Message}", ex);
                 await Retry(Messages.NO_SERVICE + " Ocurrió un error inesperado" + " Presiona continuar para intentar de nuevo.");
             }
-
-
-
         }
 
         private async Task Retry(string msgModal)
         {
-
             _nav.ShowModal(msgModal, new InfoModal());
             await InitPayPad();
         }
@@ -106,11 +102,8 @@ namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
                         _statusMsg = value;
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StatusMsg)));
                     }
-
                 }
             }
-
         }
-
     }
 }
