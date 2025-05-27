@@ -2,10 +2,12 @@ using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WPF_APOSTAR_MIGRACION.Presentation.Controls;
+using WPF_APOSTAR_MIGRACION.Presentation.UserControls;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation;
 
-public partial class MainPublicityUC : UserControl
+public partial class MainPublicityUC :AppUserControl
 {
     private readonly string _videoPath;
 
@@ -41,6 +43,32 @@ public partial class MainPublicityUC : UserControl
 
     private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
     {
-        MessageBox.Show("Aquí iría la navegación al menú principal usando Navigator.Instance.NavigateTo(new OtroUserControl())");
+        // Cuando el usuario toca la pantalla, navegar a MenuUC
+        ContinueButton_Click(sender, new RoutedEventArgs());
+    }
+
+    private void ContinueButton_Click(object sender, RoutedEventArgs e)
+    {
+        // Navegar a MenuUC cuando el usuario toca el botón
+        try
+        {
+            // Detener el video
+            if (SplashVideo != null)
+            {
+                SplashVideo.Stop();
+                SplashVideo.Close();
+            }
+            
+            // Limpiar memoria
+            GC.Collect();
+            
+            // Navegar a MenuUC
+            var menuUC = new MenuUC();
+            _nav.NavigateTo(menuUC);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error al navegar: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }
