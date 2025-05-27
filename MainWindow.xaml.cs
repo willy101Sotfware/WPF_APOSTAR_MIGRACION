@@ -1,5 +1,4 @@
 using System.Windows;
-using WPF_APOSTAR_MIGRACION.Presentation;
 using WPF_APOSTAR_MIGRACION.Domain;
 
 namespace WPF_APOSTAR_MIGRACION

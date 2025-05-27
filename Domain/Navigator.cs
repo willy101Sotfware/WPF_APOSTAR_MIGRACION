@@ -9,7 +9,7 @@ public class Navigator
     // Patron de Diseño Singleton
     private static Navigator? _instance;
     private MainWindow? _mainWindow;
-    private ModalWindow? _currentModal; 
+    private ModalWindow? _currentModal;
 
     private Navigator() { }
 

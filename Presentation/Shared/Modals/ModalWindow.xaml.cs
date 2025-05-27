@@ -47,7 +47,7 @@ public partial class ModalWindow : Window
     {
         this.DialogResult = false;
     }
-    
+
     private void mediaElement_MediaEnded(object sender, RoutedEventArgs e)
     {
         if (mediaElement != null)
@@ -56,7 +56,7 @@ public partial class ModalWindow : Window
             mediaElement.Play();
         }
     }
-    
+
     private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
     {
         // Si es necesario, puedes agregar lógica aquí

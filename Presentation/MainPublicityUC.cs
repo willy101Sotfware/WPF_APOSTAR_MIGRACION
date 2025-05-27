@@ -1,7 +1,7 @@
+using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Configuration;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation;
 
@@ -15,8 +15,8 @@ public partial class MainPublicityUC : UserControl
         _videoPath = ConfigurationManager.AppSettings["VideoPublish"];
         LoadVideo();
     }
-    
- 
+
+
 
     private void LoadVideo()
     {

@@ -1,37 +1,39 @@
 ﻿using System.Windows.Controls;
-using System.Windows.Threading;
 using WPF_APOSTAR_MIGRACION.Domain;
 
-namespace WPF_APOSTAR_MIGRACION.Presentation.AppUserControl;
 
-public class AppUserControl : UserControl
+namespace WPF_APOSTAR_MIGRACION.UserControls
 {
-    protected Navigator _nav = Navigator.Instance;
-    protected void GoTo(UserControl view)
-    {
 
-        _nav.NavigateTo(view);
-    }
-
-    protected void EnableView()
+    public class AppUserControl : UserControl
     {
-        Dispatcher.Invoke((Action)delegate
+        protected Navigator _nav = Navigator.Instance;
+        protected void GoTo(UserControl view)
         {
-            this.IsEnabled = true;
-            this.Opacity = 1;
-        });
 
+            _nav.NavigateTo(view);
+        }
 
-    }
-
-    protected void DisableView()
-    {
-        Dispatcher.Invoke((Action)delegate
+        protected void EnableView()
         {
-            this.IsEnabled = false;
-            this.Opacity = 0.3;
-        });
+            Dispatcher.Invoke((Action)delegate
+             {
+                 this.IsEnabled = true;
+                 this.Opacity = 1;
+             });
 
 
+        }
+
+        protected void DisableView()
+        {
+            Dispatcher.Invoke((Action)delegate
+            {
+                this.IsEnabled = false;
+                this.Opacity = 0.3;
+            });
+
+
+        }
     }
 }
