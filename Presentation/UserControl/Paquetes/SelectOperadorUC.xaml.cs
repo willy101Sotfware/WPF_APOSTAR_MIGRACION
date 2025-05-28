@@ -1,4 +1,3 @@
-using System;
 using System.Windows;
 using WPF_APOSTAR_MIGRACION.Domain;
 using WPF_APOSTAR_MIGRACION.Presentation.UserControls;

@@ -7,6 +7,7 @@ using WPF_APOSTAR_MIGRACION.Domain.ApiService;
 using WPF_APOSTAR_MIGRACION.Domain.UIServices;
 using WPF_APOSTAR_MIGRACION.Domain.Variables;
 using WPF_APOSTAR_MIGRACION.Presentation.Shared.Modals;
+using WPF_APOSTAR_MIGRACION.Presentation.UserControl.Administrador;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
 {
