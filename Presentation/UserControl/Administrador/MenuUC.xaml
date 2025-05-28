@@ -1,9 +1,8 @@
-<UserControl x:Class="WPF_APOSTAR_MIGRACION.Presentation.UserControls.MenuUC"
+<controls:AppUserControl x:Class="WPF_APOSTAR_MIGRACION.Presentation.UserControls.MenuUC"
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                         xmlns:local="clr-namespace:WPF_APOSTAR_MIGRACION.Presentation.UserControls"
                          xmlns:controls="clr-namespace:WPF_APOSTAR_MIGRACION.Presentation.Controls"
                          mc:Ignorable="d"
                          d:DesignHeight="1920"
@@ -49,7 +48,7 @@
                    Tag="Recaudo" />
 
             <Image x:Name="Paquetes" 
-                   Source="/Assets/images/Buttons/BotonPaquetes.png" 
+                   Source="/Assets/Images/Buttons/BotonPaquetes.png" 
                    Margin="31,482,579,930"
                    PreviewMouseDown="OpcionButton_Click"
                    Tag="Paquetes" />
@@ -73,4 +72,4 @@
 
         </Grid>
     </Viewbox>
-</UserControl>
+</controls:AppUserControl>
