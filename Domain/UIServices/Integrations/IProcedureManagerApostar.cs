@@ -32,15 +32,15 @@ public interface IProcedureManagerApostar
     Task<ResponseGuardarPaquetes> GuardarPaquetes(RequestGuardarPaquete request);
 }
 
-public class ProcedureExceptionInder : Exception
+public class ProcedureExceptionApostar : Exception
 {
-    public ProcedureExceptionInder() { }
+    public ProcedureExceptionApostar() { }
 
-    public ProcedureExceptionInder(string? message) : base(message)
+    public ProcedureExceptionApostar(string? message) : base(message)
     {
     }
 
-    public ProcedureExceptionInder(string? message, Exception? innerException) : base(message, innerException)
+    public ProcedureExceptionApostar(string? message, Exception? innerException) : base(message, innerException)
     {
     }
 }

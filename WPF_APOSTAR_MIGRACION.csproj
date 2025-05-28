@@ -36,4 +36,8 @@
     <ProjectReference Include="..\DB\DB.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Presentation\UserControl\Paquetes\" />
+  </ItemGroup>
+
 </Project>

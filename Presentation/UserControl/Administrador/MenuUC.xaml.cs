@@ -46,11 +46,23 @@ namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
                     break;
                     
                 case "Paquetes":
-                    // Aquí va la lógica para el botón Paquetes
-                    MessageBox.Show("Botón Paquetes presionado");
+                  
+                    try
+                    {
+                        GC.Collect();
+
+                        // Navegar a MenuUC
+                        var menuUC = new MenuUC();
+                        _nav.NavigateTo(menuUC);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al navegar: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+        
                     break;
                     
-                default:
+                    default:
                     MessageBox.Show($"Botón desconocido: {tag}");
                     break;
             }
