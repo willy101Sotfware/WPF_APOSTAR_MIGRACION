@@ -51,9 +51,12 @@ namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
                     {
                         GC.Collect();
 
-                        // Navegar a MenuUC
-                        var menuUC = new MenuUC();
-                        _nav.NavigateTo(menuUC);
+                        // Por ahora solo mostramos un mensaje
+                        MessageBox.Show("Navegación a Paquetes en desarrollo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                        
+                        // Cuando tengas la pantalla de Paquetes lista, puedes descomentar esto:
+                        // var paquetesUC = new PaquetesUC();
+                        // _nav.NavigateTo(paquetesUC);
                     }
                     catch (Exception ex)
                     {
@@ -62,7 +65,7 @@ namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
         
                     break;
                     
-                    default:
+                default:
                     MessageBox.Show($"Botón desconocido: {tag}");
                     break;
             }

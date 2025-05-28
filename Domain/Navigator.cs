@@ -1,5 +1,6 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
+using WPF_APOSTAR_MIGRACION.Presentation.Controls;
 using WPF_APOSTAR_MIGRACION.Presentation.Shared.Modals;
 
 namespace WPF_APOSTAR_MIGRACION.Domain;
@@ -30,7 +31,6 @@ public class Navigator
 
     public void NavigateTo(UserControl view)
     {
-
         if (_mainWindow == null)
         {
             throw new Exception("El navegador de la aplicación no ha sido inicializado en la ventana principal");
@@ -46,7 +46,6 @@ public class Navigator
         {
             _mainWindow.MainContainer.Content = view;
         });
-
     }
 
     public bool ShowModal(string msg, ModalType type)
