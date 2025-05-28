@@ -1,0 +1,94 @@
+<UserControl x:Class="WPF_APOSTAR_MIGRACION.Presentation.UserControl.Paquetes.SelectOperadorUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:WPF_APOSTAR_MIGRACION.Presentation.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="1920" d:DesignWidth="1080">
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1080" Height="1920">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/images/Backgrounds/BgApostar.png"/>
+            </Grid.Background>
+
+            <TextBlock
+                   FontSize="75"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Margin="0,252,0,0"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Width="700"
+                   FontFamily="Arial"
+                   Text="Selección de Operador"
+                   FontWeight="Bold" Foreground="White" />
+
+            <TextBlock
+                   Text="Seleccione el operador para continuar"
+                   FontFamily="Arial"
+                   FontSize="50"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Margin="0,400,0,0"
+                   Width="700"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   FontWeight="Bold" Foreground="#FFF7F7F7" />
+
+            <StackPanel Orientation="Vertical" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        Width="800" 
+                        Margin="0,100,0,0">
+                
+                <!-- Botones de operadores -->
+                <Button x:Name="BtnOperador1" 
+                        Content="Operador 1" 
+                        Height="120" 
+                        Margin="0,20,0,0"
+                        Background="#FF0066CC"
+                        Foreground="White"
+                        FontSize="40"
+                        FontWeight="Bold"
+                        Click="OperadorButton_Click"
+                        Tag="Operador1"/>
+                
+                <Button x:Name="BtnOperador2" 
+                        Content="Operador 2" 
+                        Height="120" 
+                        Margin="0,20,0,0"
+                        Background="#FF0066CC"
+                        Foreground="White"
+                        FontSize="40"
+                        FontWeight="Bold"
+                        Click="OperadorButton_Click"
+                        Tag="Operador2"/>
+                
+                <Button x:Name="BtnOperador3" 
+                        Content="Operador 3" 
+                        Height="120" 
+                        Margin="0,20,0,0"
+                        Background="#FF0066CC"
+                        Foreground="White"
+                        FontSize="40"
+                        FontWeight="Bold"
+                        Click="OperadorButton_Click"
+                        Tag="Operador3"/>
+            </StackPanel>
+            
+            <Button x:Name="BtnVolver" 
+                    Content="Volver" 
+                    Height="80" 
+                    Width="300"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,100"
+                    Background="#FFCC0000"
+                    Foreground="White"
+                    FontSize="36"
+                    FontWeight="Bold"
+                    Click="VolverButton_Click"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

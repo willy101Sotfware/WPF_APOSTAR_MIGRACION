@@ -1,14 +1,23 @@
+using System;
 using System.Configuration;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using WPF_APOSTAR_MIGRACION.Presentation.Controls;
+using WPF_APOSTAR_MIGRACION.Domain;
 using WPF_APOSTAR_MIGRACION.Presentation.UserControls;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation;
 
-public partial class MainPublicityUC :AppUserControl
+public partial class MainPublicityUC : System.Windows.Controls.UserControl
 {
+    // Instancia del navegador para la navegación
+    protected Navigator _nav = Navigator.Instance;
+    
+    // Método para navegar a otra vista
+    protected void GoTo(System.Windows.Controls.UserControl view)
+    {
+        _nav.NavigateTo(view);
+    }
+    
     private readonly string _videoPath;
 
     public MainPublicityUC()

@@ -1,22 +1,29 @@
 using System;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Threading.Tasks;
 using WPF_APOSTAR_MIGRACION.Domain;
 using WPF_APOSTAR_MIGRACION.Domain.ApiService;
 using WPF_APOSTAR_MIGRACION.Domain.UIServices;
 using WPF_APOSTAR_MIGRACION.Domain.Variables;
 using WPF_APOSTAR_MIGRACION.Presentation.Shared.Modals;
-using WPF_APOSTAR_MIGRACION.Presentation.Controls;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
 {
     /// <summary>
     /// Lógica de interacción para ConfigUC.xaml
     /// </summary>
-    public partial class ConfigUC : AppUserControl
+    public partial class ConfigUC : System.Windows.Controls.UserControl
     {
+        // Instancia del navegador para la navegación
+        protected Navigator _nav = Navigator.Instance;
+        
+        // Método para navegar a otra vista
+        protected void GoTo(System.Windows.Controls.UserControl view)
+        {
+            _nav.NavigateTo(view);
+        }
+        
         private ConfigViewModel _viewModel;
         public ConfigUC()
         {

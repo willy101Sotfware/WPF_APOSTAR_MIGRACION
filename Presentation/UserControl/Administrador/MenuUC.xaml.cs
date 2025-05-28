@@ -1,15 +1,25 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
-using WPF_APOSTAR_MIGRACION.Presentation.Controls;
+using WPF_APOSTAR_MIGRACION.Domain;
+using WPF_APOSTAR_MIGRACION.Presentation.UserControl.Paquetes;
 
 namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
 {
     /// <summary>
     /// Lógica de interacción para MenuUC.xaml
     /// </summary>
-    public partial class MenuUC : AppUserControl
+    public partial class MenuUC : System.Windows.Controls.UserControl
     {
+        // Instancia del navegador para la navegación
+        protected Navigator _nav = Navigator.Instance;
+        
+        // Método para navegar a otra vista
+        protected void GoTo(System.Windows.Controls.UserControl view)
+        {
+            _nav.NavigateTo(view);
+        }
+        
         public MenuUC()
         {
             InitializeComponent();
@@ -51,12 +61,9 @@ namespace WPF_APOSTAR_MIGRACION.Presentation.UserControls
                     {
                         GC.Collect();
 
-                        // Por ahora solo mostramos un mensaje
-                        MessageBox.Show("Navegación a Paquetes en desarrollo", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                        
-                        // Cuando tengas la pantalla de Paquetes lista, puedes descomentar esto:
-                        // var paquetesUC = new PaquetesUC();
-                        // _nav.NavigateTo(paquetesUC);
+                        // Navegar a la pantalla de selección de operador
+                        var selectOperadorUC = new SelectOperadorUC();
+                        GoTo(selectOperadorUC);
                     }
                     catch (Exception ex)
                     {
