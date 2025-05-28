@@ -2,8 +2,8 @@ using System.ComponentModel;
 using System.Windows;
 using WPF_APOSTAR_MIGRACION.Domain;
 using WPF_APOSTAR_MIGRACION.Domain.ApiService;
-using WPF_APOSTAR_MIGRACION.Domain.UIServices;
 using WPF_APOSTAR_MIGRACION.Domain.Variables;
+using WPF_APOSTAR_MIGRACION.Models;
 using WPF_APOSTAR_MIGRACION.Presentation.Shared.Modals;
 using WPF_APOSTAR_MIGRACION.Presentation.UserControls.Administrador;
 

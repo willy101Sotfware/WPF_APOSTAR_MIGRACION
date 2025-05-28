@@ -7,7 +7,7 @@ using System.Text;
 using WPF_APOSTAR_MIGRACION.ApiService.Models;
 using WPF_APOSTAR_MIGRACION.Domain.ApiService.QueueModels;
 using WPF_APOSTAR_MIGRACION.Domain.Enumerables;
-using WPF_APOSTAR_MIGRACION.Domain.UIServices;
+using WPF_APOSTAR_MIGRACION.Models;
 
 namespace WPF_APOSTAR_MIGRACION.Domain.ApiService;
 

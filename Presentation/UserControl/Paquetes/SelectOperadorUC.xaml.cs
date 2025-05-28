@@ -1,43 +1,50 @@
 using System.Windows;
-using WPF_APOSTAR_MIGRACION.Domain;
+using System.Windows.Controls;
+using System.Windows.Input;
 using WPF_APOSTAR_MIGRACION.Presentation.Controls;
-using WPF_APOSTAR_MIGRACION.Presentation.UserControls;
 
-namespace WPF_APOSTAR_MIGRACION.Presentation.UserControl.Paquetes
+namespace WPF_APOSTAR_MIGRACION.Presentation.UserControl.Paquetes;
+
+public partial class SelectOperadorUC : AppUserControl
 {
-    /// <summary>
-    /// Lógica de interacción para SelectOperadorUC.xaml
-    /// </summary>
-    public partial class SelectOperadorUC : AppUserControl 
+    public SelectOperadorUC()
     {
-        public SelectOperadorUC()
+        InitializeComponent();
+    }
+
+    // Evento para el ListViewItem MouseDown (Btn_SelectOperator)
+    private void Btn_SelectOperator(object sender, MouseButtonEventArgs e)
+    {
+        var listViewItem = sender as ListViewItem;
+        if (listViewItem != null && listViewItem.Content != null)
         {
-            InitializeComponent();
+            // Aquí puedes obtener el operador seleccionado:
+            var operador = listViewItem.Content;
+            MessageBox.Show($"Seleccionaste el operador: {operador}");
         }
+    }
 
-        private void OperadorButton_Click(object sender, RoutedEventArgs e)
+    // Evento para la selección en ListView
+    private void lvOperator_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var listView = sender as ListView;
+        if (listView != null && listView.SelectedItem != null)
         {
-            var control = sender as FrameworkElement;
-            if (control == null || control.Tag == null)
-                return;
-
-            string operador = control.Tag.ToString();
-            MessageBox.Show($"Seleccionaste el {operador}", "Operador Seleccionado", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            // Aquí puedes usar GoTo directamente
-            // GoTo(new OtraVista(operador));
+            var operador = listView.SelectedItem;
+            MessageBox.Show($"Seleccionaste (listview): {operador}");
         }
+    }
 
-        private void VolverButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                GoTo(new MenuUC());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al navegar: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+    // Evento para el botón cancelar touch down / mouse down
+    private void BtnCancelar_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+    {
+        MessageBox.Show("Botón cancelar pulsado (Mouse o Touch)");
+    }
+
+
+    // Si quieres manejar también MouseDown para el botón cancelar, puedes definir:
+    private void BtnCancelar_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        MessageBox.Show("Cancelar pulsado (MouseDown)");
     }
 }

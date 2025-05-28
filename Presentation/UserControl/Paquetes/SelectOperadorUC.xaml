@@ -4,91 +4,189 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:WPF_APOSTAR_MIGRACION.Presentation.Controls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              d:DesignHeight="1920" d:DesignWidth="1080">
+    <UserControl.Resources>
+        <Style x:Key="DesignView"
+               TargetType="ListViewItem"
+               >
+            <EventSetter Event="MouseDown"
+             Handler="Btn_SelectOperator"
+                                         />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="StyleBorder">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="StyleBorder" 
+                                        Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Viewbox Stretch="Uniform">
         <Grid Width="1080" Height="1920">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+
+
+
+
+
             <Grid.Background>
-                <ImageBrush ImageSource="/Assets/images/Backgrounds/BgApostar.png"/>
+                <ImageBrush ImageSource="/Assets/Images/Backgrounds/bgGray.png"/>
             </Grid.Background>
 
-            <TextBlock
-                   FontSize="75"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Center"
-                   Margin="0,252,0,0"
-                   TextAlignment="Center"
-                   TextWrapping="Wrap"
-                   Width="700"
-                   FontFamily="Arial"
-                   Text="Selección de Operador"
-                   FontWeight="Bold" Foreground="White" />
 
-            <TextBlock
-                   Text="Seleccione el operador para continuar"
-                   FontFamily="Arial"
-                   FontSize="50"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Center"
-                   Margin="0,400,0,0"
-                   Width="700"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center"
-                   FontWeight="Bold" Foreground="#FFF7F7F7" />
 
-            <StackPanel Orientation="Vertical" 
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Center" 
-                        Width="800" 
-                        Margin="0,100,0,0">
-                
-                <!-- Botones de operadores -->
-                <Button x:Name="BtnOperador1" 
-                        Content="Operador 1" 
-                        Height="120" 
-                        Margin="0,20,0,0"
-                        Background="#FF0066CC"
-                        Foreground="White"
-                        FontSize="40"
-                        FontWeight="Bold"
-                        Click="OperadorButton_Click"
-                        Tag="Operador1"/>
-                
-                <Button x:Name="BtnOperador2" 
-                        Content="Operador 2" 
-                        Height="120" 
-                        Margin="0,20,0,0"
-                        Background="#FF0066CC"
-                        Foreground="White"
-                        FontSize="40"
-                        FontWeight="Bold"
-                        Click="OperadorButton_Click"
-                        Tag="Operador2"/>
-                
-                <Button x:Name="BtnOperador3" 
-                        Content="Operador 3" 
-                        Height="120" 
-                        Margin="0,20,0,0"
-                        Background="#FF0066CC"
-                        Foreground="White"
-                        FontSize="40"
-                        FontWeight="Bold"
-                        Click="OperadorButton_Click"
-                        Tag="Operador3"/>
-            </StackPanel>
-            
-            <Button x:Name="BtnVolver" 
-                    Content="Volver" 
-                    Height="80" 
-                    Width="300"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Center"
-                    Margin="0,0,0,100"
-                    Background="#FFCC0000"
-                    Foreground="White"
-                    FontSize="36"
+            <TextBlock 
+         x:Name="tbTimer"
+         FontSize="45"
+         Foreground="Black"
+         HorizontalAlignment="Right"
+         VerticalAlignment="Top"
+         Margin="0,10,35,0" Height="60" Width="126" Grid.Column="1"/>
+
+
+            <TextBlock Text="Paquetes de celular"         
+            Margin="0,292,0,0"
+            TextAlignment="Center"
+            VerticalAlignment="Top"   
+            HorizontalAlignment="Center"
+            Height="98"                       
+            TextWrapping="wrap"
                     FontWeight="Bold"
-                    Click="VolverButton_Click"/>
+            Width="600" FontSize="60"  Foreground="Black"/>
+
+
+
+
+            <Image Source="/Assets/Images/Others/IcoApostar.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" Height="208" Width="540" Margin="0,56,0,0"/>
+
+
+
+            <Grid Grid.Row="1" >
+
+                <Grid>
+
+                    <Image Source="/Assets/Images/Backgrounds/BgPay.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" Height="1152" Width="868"/>
+
+
+
+                    <Image Source="/Assets/Images/Others/Listaoperadores.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" Width="480" Height="175" Margin="0,42,0,0"
+             />
+
+
+
+                    <TextBlock Text="Elige el operador"         
+            Margin="0,305,0,0"
+            TextAlignment="Center"
+            VerticalAlignment="Top"   
+            HorizontalAlignment="Center"
+            Height="98"                       
+            TextWrapping="wrap"
+            FontFamily="Yu Gothic UI Semibold"
+            Width="600" FontSize="50"  Foreground="White"/>
+
+
+                </Grid>
+
+
+                <materialDesign:TransitioningContent  
+             OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplier 0:0:1.2}" 
+             Name="btnMapSeats" Margin="213,770,211,445" RenderTransformOrigin="0.507,0.5">
+                    <materialDesign:TransitioningContent.OpeningEffects>
+                        <materialDesign:TransitionEffect Kind="SlideInFromBottom"  Duration="0:0:1.9"/>
+                    </materialDesign:TransitioningContent.OpeningEffects>
+
+                    <ListView 
+                 x:Name="lvOperator"
+                 ItemContainerStyle="{DynamicResource DesignView}"
+                 
+                 ItemsSource="{Binding}"            
+                 SelectionMode="Single" Background="{x:Null}" Margin="-54,-284,-54,-266" SelectionChanged="lvOperator_SelectionChanged">
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="3"
+                               VerticalAlignment="Top"
+                              HorizontalAlignment="Center"/>
+
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid 
+                                    
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Top"
+                             Margin="0,20,20,0"
+                              x:Name="OperatorSelected"
+                             Width="200"
+                             Height="200">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="200" />
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0"                      
+                                     x:Name="OperatorsSelected"
+                                   >
+
+                                        <Grid.Background>
+
+                                            <ImageBrush 
+                                         ImageSource="{Binding ImageData}"                                            
+                                         Stretch="Fill"                                      
+                                         />
+                                        </Grid.Background>
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                </materialDesign:TransitioningContent>
+
+
+                <Image Source="/Assets/Images/Buttons/btnCancelar.png"
+                HorizontalAlignment="Center"
+                PreviewMouseDown="BtnCancelar_PreviewMouseDown"
+                VerticalAlignment="Top" Height="105" Width="362" Margin="0,1248,0,0"/>
+
+
+
+            </Grid>
+
+
+
+
+
+
+
+
+
+
         </Grid>
     </Viewbox>
+
 </controls:AppUserControl>

@@ -2,7 +2,7 @@ using WPF_APOSTAR_MIGRACION.ApiService.Models;
 using WPF_APOSTAR_MIGRACION.Domain.ApiService.IntegrationModels;
 using WPF_APOSTAR_MIGRACION.Domain.Enumerables;
 
-namespace WPF_APOSTAR_MIGRACION.Domain.UIServices;
+namespace WPF_APOSTAR_MIGRACION.Models;
 
 public class Transaction
 {
@@ -49,9 +49,7 @@ public class Transaction
     public string Calificacion { get; set; }
 
 
-    // Propiedades para el formulario de colegio
-    public string? Colegio { get; set; }
-    public int NumeroDePeronas { get; set; }
+
 
     //Integración
 
